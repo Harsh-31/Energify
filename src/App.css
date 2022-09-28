@@ -54,3 +54,75 @@
 .f2f2f2{
   background-color:lightyellow;
 }
+
+.link {
+  text-decoration: none;
+}
+
+.carousel-control-next-icon{
+  background-color: rgb(236, 180, 41);
+  padding: 2px;
+}
+
+.carousel-control-prev-icon{
+  background-color: rgb(236, 180, 41);
+  padding: 2px;
+}
+
+.footer-color{
+  background-color: rgb(41, 1, 56);
+  color: rgb(255, 255, 255);
+  margin-top: 0px;
+}
+
+.energify{
+  font-family: "Sofia", sans-serif;
+  font-size: 30px;
+  text-shadow: 4px 4px 4px #675858;
+}
+
+.navCol{
+  background-color: rgb(41, 1, 56);
+  color: white;
+  padding-top: 12px;
+  font-size: 13.8384px;
+}
+
+.para{
+  font-size: 13.8384px;
+  color: black;
+}
+
+.texthover:hover{
+  color: green;
+}
+
+.text-hover{
+  color: green;
+  background-image:none;
+}
+
+.wrapper{
+  
+  width:  100%;
+  height: 100vh;
+  background-image: url("https://www.brookfield.com/sites/default/files/styles/de2e_standard/public/images/2019-04/hires_nts2.jpg?h=255eabf9&itok=IK2yHglK");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 1% 3%;
+ 
+}
+.wrapper .overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  width: 35%;
+  min-width: 300px;
+  z-index: 1;
+  background-color:rgb(255, 193, 7);
+  border-radius: 20px;
+  padding: 1% 3%;
+  margin-top:60px;
+}

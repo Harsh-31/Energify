@@ -2,6 +2,8 @@ import React from 'react';
 import Slider from '../Inc/Slider';
 import Mv from './includes/Mv';
 import Footer from '../Inc/Footer';
+import { Link } from 'react-router-dom';
+
 
 function Home() {
     return (
@@ -13,9 +15,8 @@ function Home() {
                         <div className='col-md-12'>
                             <h4>Our Company</h4>
                             <div className='underline mb-3'></div>
-                            <p align="justify">
-                                Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-
+                            <p align="justify" class='para'>
+                                Energify is a British multinational oil and gas company headquartered in London, England. Energify is a public limited company with a primary listing on the London Stock Exchange (LSE) and secondary listings on Euronext Amsterdam and the New York Stock Exchange. It is one of the oil and gas "supermajors" and by revenue and profits is consistently one of the largest companies in the world. Measured by both its own emissions, and the emissions of all the fossil fuels it sells, Energify was the ninth-largest corporate producer of greenhouse gas emissions in the period 1988–2015.
                             </p>
                         </div>
                     </div>
@@ -31,42 +32,59 @@ function Home() {
                             <div className='underline mb-3'></div>
                         </div>
 
-                        <div className='col-md-6'>
+
+                        <div className='col-md-4'>
                             <div className='card shadow'>
-                                <div className='card-body'>
-
-                                    <h6>Online Fuel Delivery</h6>
-                                    <div className='mb-3 sub-underline mb-3'></div>
-                                    <p align="justify">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                        It has roots in a piece of classical Latin literature from 45 BC,
-                                        making it over 2000 years old. Richard McClintock, a Latin professor
-                                        at Hampden-Sydney College in Virginia, looked up one of the more obscure
-                                        Latin words, consectetur, from a Lorem Ipsum passage, and going through
-                                        sit amet..", comes from a line in section 1.10.32.
-
-                                    </p>
-                                </div>
+                                <Link to="/about" className='link' >
+                                    <div className='card-body'>
+                                        <h6 className='text-dark'>Online Fuel Delivery</h6>
+                                        <div className='mb-3 sub-underline mb-3'></div>
+                                        <p className='text-dark' align="justify" class='para'>
+                                            Fuel@Call is an initiative from Energify India Pvt. Ltd. for its customers to order fuel at their doorsteps.
+                                            Customers can order fuel through mobile app and get the fuel delivered at their preferred location with convenience of online and pay on delivery options.
+                                            The fuel is delivered through mobile bowsers designated by Energify. All transactions on Fuel@Call are encrypted at every stage and completely secure.
+                                            The Company- plans to extend the platform to all major industrial and commercial markets by end of FY 2022-23.
+                                        </p>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
 
-
-                        <div className='col-md-6'>
+                        <div className='col-md-4'>
                             <div className='card shadow'>
-                                <div className='card-body'>
+                                <Link to="/GasPipeline" className='text-decoration-none'>
+                                    <div className='card-body'>
+                                        <h6 className='text-dark'>Gas Pipeline Connection</h6>
+                                        <div className='mb-3 sub-underline mb-3'></div>
+                                        <p className='text-dark' align="justify" class='para'>
+                                            GasCon@Call is an initiative from Energify India Pvt. Ltd. for its customers to reaquest for gas pipeline connection.
+                                            Customers can raise request through mobile app and get the gas pipeline connection at their preferred location with convenience of online and pay on delivery options.
+                                            The fuel is delivered through mobile bowsers designated by Energify. All transactions on GasC@Call are encrypted at every stage and completely secure.
+                                            The Company- plans to extend the platform to all major industrial and commercial markets by end of FY 2022-23.
+                                        </p>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
 
-                                    <h6>Gas Pipeline Connection</h6>
-                                    <div className='mb-3 sub-underline mb-3'></div>
-                                    <p align="justify">
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text.
-                                        It has roots in a piece of classical Latin literature from 45 BC,
-                                        making it over 2000 years old. Richard McClintock, a Latin professor
-                                        at Hampden-Sydney College in Virginia, looked up one of the more obscure
-                                        Latin words, consectetur, from a Lorem Ipsum passage, and going through
-                                        sit amet..", comes from a line in section 1.10.32.
+                        <div className='col-md-4'>
+                            <div className='card shadow'>
+                                <Link to="/contact" className='text-decoration-none'>
+                                    <div className='card-body'>
+                                        <h6 className='text-dark'>Maintenance</h6>
+                                        <div className='mb-3 sub-underline mb-3'></div>
+                                        <p className='text-dark' align="justify" class='para'>
+                                            HSSE: Health, Safety, Security and Environment.
+                                            For our company, the most important thing is:
+                                            Health, safety, security and environment. So considering
+                                            all these values, Energify is always available to providing maintenance
+                                            activities related to gas pipeline connection. The meter shall be installed at a proper location and height,
+                                            so as to facilitate safe and convenient meter reading and maintenance activities in future.
+                                            So if anyone notice that the pipeline connection needs maintenance then kindly contact us.
 
-                                    </p>
-                                </div>
+                                        </p>
+                                    </div>
+                                </Link>
                             </div>
                         </div>
 
@@ -74,7 +92,7 @@ function Home() {
                 </div>
             </section >
 
-            <Footer/>
+            <Footer />
         </div >
     )
 }
