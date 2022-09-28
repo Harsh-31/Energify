@@ -1,15 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light sticky-top bg-warning">
             <div className="container">
-                <Link className="navbar-brand" to ="/"><strong>Energify</strong></Link>
+                <Link className="navbar-brand" to="/"><strong class="energify">Energify</strong></Link>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
-                        <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to ="/"><strong>Home</strong></Link>
+                        <li className="nav-item" class="texthover">
+                            <Link className="nav-link active" aria-current="page" to="/"><strong>Home</strong></Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/about"><strong>Fuel Delivery</strong></Link>

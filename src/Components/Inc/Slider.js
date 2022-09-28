@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 function Slider() {
     return (
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
+            <div class="carousel-inner" >
+                <div class="carousel-item active" >
                     <img src={Slider1} class="d-block w-100" height="400px" alt="Slider 1"/>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" >
                     <img src={Slider2} class="d-block w-100" height="400px" alt="Slider 2"/>
                 </div>
             </div>
