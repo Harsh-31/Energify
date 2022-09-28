@@ -1,9 +1,21 @@
 import React, {useState} from 'react'
 import emailjs from '@emailjs/browser';
-import {saveOTP} from '../../service/encryption';
+import {saveOTP, encryptPassword} from '../../service/encryption';
 import { useNavigate } from 'react-router-dom';
+import{useMutation,gql} from '@apollo/client';
 
 const Signup = () => {
+
+    // const SIGNUP_MUT = gql`
+    // mutation registeruser($email:String!, $password:String!,$name:String!,$address:String!,$rolecode:Int!)
+    // `
+    // const [registeruser,{error}] = useMutation(SIGNUP_MUT);
+
+    
+
+
+
+
     const [dataValidation, setDataValidation] = useState({
         name: "",
         address: "",
@@ -16,10 +28,8 @@ const Signup = () => {
 
     const navigate = useNavigate()
 
-    function sendEmail(e) {
+    async function sendEmail(e) {
         e.preventDefault();
-        let checks = false;
-
         const validateResult = {
             name: e.target.name.value ? (/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~0-9]/.test(e.target.name.value)) ? "User name shouldn't contain special characters or numbers." : "" : "User name is required.",
             address: e.target.address.value ? "" : "Address is required.",
@@ -30,12 +40,10 @@ const Signup = () => {
             address: e.target.address.value ? "" : "Address is required."
         }
         setDataValidation(validateResult)
-
-        console.log(validateResult)
         if(!validateResult.name && !validateResult.address && !validateResult.email && !validateResult.password && !validateResult.conpassword && !validateResult.phone && !validateResult.address){
-            console.log("no problem");
+            const encryptPass = await encryptPassword(e.target.password.value)
             const OTP = Math.floor(100000 + Math.random() * 900000)
-            saveOTP(Math.floor(100000 + Math.random() * 900000));
+            saveOTP(OTP);
             emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, {
                 otp: OTP,
                 name: e.target.name.value,
@@ -50,6 +58,16 @@ const Signup = () => {
                     console.log(error.text);
                 }
             );
+
+            console.log(encryptPassword)
+            // registeruser({
+            //     variables:{
+            //         email: "e.target.email.value",
+            //         name: "e.target.name.value",
+            //         password: `${encryptPassword}`,
+            //         address: "e.target.address.value"
+            //     }
+            // })
         }
     };
 

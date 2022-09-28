@@ -20,7 +20,7 @@ const client = new ApolloClient({
 
 
 const aspclient = new ApolloClient({
-  uri: 'https://localhost:5001/graphql',
+  uri: 'https://energify.azurewebsites.net/graphql',
   cache: new InMemoryCache(),
 });
 
@@ -28,10 +28,10 @@ const aspclient = new ApolloClient({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <GoogleOAuthProvider clientId={clientId}>
-  <BrowserRouter>
-  <ApolloProvider client={aspclient}>
-    <App/>
-    </ApolloProvider>
+    <BrowserRouter>
+      <ApolloProvider client={aspclient}>
+        <App/>
+      </ApolloProvider>
     </BrowserRouter>
   </GoogleOAuthProvider>
 );

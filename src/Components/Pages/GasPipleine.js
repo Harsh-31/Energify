@@ -37,43 +37,43 @@ export default function Gas() {
                 <h3 className="text-center mb-2">New Connection</h3>
 
                 <form onSubmit={handleSubmit}>
-                    <div class="row">
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="First name" required></input>
+                    <div className="row">
+                        <div className="col">
+                            <input type="text" className="form-control" placeholder="First name" required></input>
                         </div>
-                        <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name" required></input>
+                        <div className="col">
+                            <input type="text" className="form-control" placeholder="Last name" required></input>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1"></label>
-                        <input type="text" class="form-control" placeholder="Enter Complete Address" required></input>
+                    <div className="form-group">
+                    <label htmlFor="exampleFormControlTextarea1"></label>
+                        <input type="text" className="form-control" placeholder="Enter Complete Address" required></input>
 
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1"></label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
-                        <small id="emailHelp" class="form-text text-muted">You will recieve a confirmation on this mail</small>
+                    <div className="form-group">
+                        <label htmlFor="exampleInputEmail1"></label>
+                        <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"></input>
+                        <small id="emailHelp" className="form-text text-muted">You will recieve a confirmation on this mail</small>
                     </div>
-                    <label for="exampleInputEmail1">Gas type</label>
-                    <div class="form-check">
+                    <label htmlFor="exampleInputEmail1">Gas type</label>
+                    <div className="form-check">
 
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked></input>
-                        <label class="form-check-label" for="exampleRadios1">
+                        <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked></input>
+                        <label className="form-check-label" for="exampleRadios1">
                             PNG   &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;       Price:54 Rs per SCM
                         </label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"></input>
-                        <label class="form-check-label" for="exampleRadios2">
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"></input>
+                        <label className="form-check-label" for="exampleRadios2">
                             CNG  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp;   Price:91 Rs per Kg
                         </label>
                     </div>
-                    <div class="form-row">
+                    <div className="form-row">
 
-                        <div class="form-group col-md-4">
+                        <div className="form-group col-md-4">
                             <label for="inputState">House type</label>
-                            <select id="inputState" class="form-control">
+                            <select id="inputState" className="form-control">
                                 <option selected>Choose...</option>
                                 <option value="1">Row House</option>
                                 <option value="2">Apartment</option>
@@ -82,12 +82,12 @@ export default function Gas() {
                         </div>
 
                     </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1"></input>
-                        <label class="form-check-label" for="exampleCheck1">I agree</label>
+                    <div className="form-check">
+                        <input type="checkbox" className="form-check-input" id="exampleCheck1"></input>
+                        <label className="form-check-label" for="exampleCheck1">I agree</label>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Apply</button>
+                    <button type="submit" className="btn btn-primary">Apply</button>
 
                 </form>
 

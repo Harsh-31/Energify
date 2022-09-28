@@ -1,77 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import Category from './component/Category';
 import "../../styles/category.css"
+import Footer from '../../Inc/Footer'
+import { useQuery,gql } from '@apollo/client';
 
-const PRODUCTS= [
-    {
-      "name": "Shell Helix Ultra",
-      "logo": "https://m.media-amazon.com/images/I/71ZqudwRRhL._SL1500_.jpg",
-      "price":400 ,
-      "quantity":"Litre",
-      "description":"this is the two wheeler engine oil",
-      "status":"In stock/Available"  ,
-
-      "categoryName":"Lubricants",
-      "categoryId":2 
-    },
-    {
-        "name": "Shell Helix Ultra",
-        "logo": "https://m.media-amazon.com/images/I/71ZqudwRRhL._SL1500_.jpg",
-        "price":400 ,
-        "quantity":"Litre",
-        "description":"this is the two wheeler engine oil",
-        "status":"In stock/Available"  ,
-
-        "categoryName":"Fuel",
-        "categoryId":2 
-      },
-      {
-        "name": "Shell Helix Ultra",
-        "logo": "https://m.media-amazon.com/images/I/71ZqudwRRhL._SL1500_.jpg",
-        "price":400 ,
-        "quantity":"Litre",
-        "description":"this is the two wheeler engine oil",
-        "status":"In stock/Available"  ,
-
-        "categoryName":"Lubricants",
-        "categoryId":2 
-      },
-      {
-        "name": "Shell Helix Ultra",
-        "logo": "https://m.media-amazon.com/images/I/71ZqudwRRhL._SL1500_.jpg",
-        "price":400 ,
-        "quantity":"Litre",
-        "description":"this is the two wheeler engine oil",
-        "status":"In stock/Available"  ,
-
-        "categoryName":"Fuel",
-        "categoryId":2 
-      },
-      {
-        "name": "Shell Helix Ultra",
-        "logo": "https://m.media-amazon.com/images/I/71ZqudwRRhL._SL1500_.jpg",
-        "price":400 ,
-        "quantity":"Litre",
-        "description":"this is the two wheeler engine oil",
-        "status":"In stock/Available"  ,
-
-        "categoryName":"Lubricants",
-        "categoryId":2 
-      },
-      {
-        "name": "Shell Helix Ultra",
-        "logo": "https://m.media-amazon.com/images/I/71ZqudwRRhL._SL1500_.jpg",
-        "price":400 ,
-        "quantity":"Litre",
-        "description":"this is the two wheeler engine oil",
-        "status":"In stock/Available"  ,
-
-        "categoryName":"Fuel",
-        "categoryId":2 
-    }
-]
-
-const productsFilter = ()=>{
+const productsFilter = (PRODUCTS)=>{
     let adjustedData = PRODUCTS.reduce(function(acc,curr){
         if(acc[curr.categoryName]){
             acc[curr.categoryName].push(curr);
@@ -86,6 +19,9 @@ const productsFilter = ()=>{
 }
 
 const filteredProducts = (products, searchString) => {
+
+    
+
     let query = searchString.toLowerCase();
     let temp = {...products};
     let result = Object.keys(products).map((value)=>{
@@ -95,9 +31,34 @@ const filteredProducts = (products, searchString) => {
 }
 
 const ProductList = ({isAdmin}) => {
+
     const [searchString, setSearchString] = useState("")
-    const [products, setProducts] = useState(productsFilter());
-    const [list, setList] = useState(productsFilter())
+    const [products, setProducts] = useState([]);
+    const [list, setList] = useState([])
+    const SELECT_QUERY = gql`
+        query{
+            getproducts{
+                name
+                image
+                price
+                description
+                quantity
+                measurement
+                categoryName
+                status
+            }
+        }
+    ` 
+    const {error, data, loading} = useQuery(SELECT_QUERY);
+
+    useEffect(() => {
+        if(!loading){
+            if(data){
+                setProducts(productsFilter(data.getproducts))
+                setList(productsFilter(data.getproducts))
+            }
+        }
+    }, [loading])
 
     useEffect(() => {
         if(searchString !== ""){
@@ -117,6 +78,7 @@ const ProductList = ({isAdmin}) => {
                 return <Category name={value} products={list[value]} key={value}/>
             }) : <h3 className="text-center">No Product Found</h3>
             }
+            <Footer/>
         </div>
     )
 }

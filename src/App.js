@@ -23,7 +23,6 @@ function App() {
         <Route path ="/verify-email" exact element={<EmailVerification/>}/>
         <Route path ="/register" exact element={<Signup/>}/>
         <Route path ="/Contact" element={<Contact/>}/>
-        <Route path ="/About" element={<About/>}/>
         <Route path ="/GasPipeline" element={<GasPipeline/>}/>
         <Route path ="/products" element={<ProductList isAdmin={false}/>}/>
       </Routes>

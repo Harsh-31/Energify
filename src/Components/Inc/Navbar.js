@@ -9,22 +9,22 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item" class="texthover">
-                            <Link className="nav-link active" aria-current="page" to="/"><strong>Home</strong></Link>
+                            <Link className="nav-link" aria-current="page" to="/"><strong>About Us</strong></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/about"><strong>Fuel Delivery</strong></Link>
+                            <Link className="nav-link" to="/products"><strong>Products</strong></Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/gaspipeline"><strong>Gas Pipeline Connection</strong></Link>
+                            <Link className="nav-link" to="/gaspipeline"><strong>Gas Connection</strong></Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/contact"><strong>Contact Us</strong></Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/login"><strong>Login</strong></Link>
+                        </li>
                     </ul>
                 </div>
-                {/*<button classNamename="navbar-toggler ml-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                   </button>*/}
             </div>
         </nav>
     )

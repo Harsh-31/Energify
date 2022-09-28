@@ -21,13 +21,13 @@ function Contact() {
                                     <h4>Mail Your Concerns</h4>
                                     <div className='underline mb-3'></div>
                                     <form>
-                                        <label for="">Name</label>
+                                        <label htmlFor="">Name</label>
                                         <input type="text" placeholder='Enter Your Name' class="form-control mb-3" />
-                                        <label for="">Email</label>
+                                        <label htmlFor="">Email</label>
                                         <input type="text" placeholder='Enter Your email id' class="form-control mb-3" />
-                                        <label for="">Address</label>
+                                        <label htmlFor="">Address</label>
                                         <input type="text" placeholder='Enter Your Address' class="form-control mb-3" />
-                                        <label for="">Message</label>
+                                        <label htmlFor="">Message</label>
                                         <textarea rows="2" className='form-control mb-3'></textarea>
                                         <button type="submit" className='btn btn-primary w-100'>Submit</button>
                                     </form>
