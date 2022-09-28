@@ -1,0 +1,71 @@
+.wrapper .overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    width: 40%;
+    min-width: 300px;
+    z-index: 1;
+    background-color:#f9f9f9d6;
+    border-radius: 20px;
+    padding: 2% 3%;
+}
+
+.strike {
+    display: block;
+    overflow: hidden;
+    margin: 1em 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.strike span {
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'Geomanist-Regular';
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    color: #636363;
+    display: block;
+    margin: 10px auto 10px;
+    position: relative;
+    z-index: 10;
+    width: 42px;
+}
+
+.strike span:before, span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: #4f4f4f;
+}
+
+.strike span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike span:after {
+    left: 100%;
+    margin-left: 15px
+}
+
+.overlay iframe {
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    /* linear-gradient(to right, rgba(255, 255, 255, 0.9) 50%, transparent 50%); */
+    min-width: 100%; 
+    min-height: 100%;
+}

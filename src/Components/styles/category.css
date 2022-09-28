@@ -1,0 +1,29 @@
+.yellow {
+    padding-top:8px;
+    width: 20px;
+    fill: rgb(255, 193, 7);
+    cursor: pointer;
+}
+
+.close {
+    width: 16px;
+    fill: white;
+}
+
+.text-yellow {
+    color: rgb(255, 193, 7)
+}
+
+.product-card{
+    max-width: 270px;
+}
+
+.dot{
+    width: 8px;
+    height:8px;
+}
+
+.av-text{
+
+    margin-left: 5px;
+}
