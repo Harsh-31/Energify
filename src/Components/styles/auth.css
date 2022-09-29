@@ -36,7 +36,7 @@
     width: 42px;
 }
 
-.strike span:before, span:after {
+.strike span:before, .strike span:after {
     content: "";
     position: absolute;
     top: 50%;

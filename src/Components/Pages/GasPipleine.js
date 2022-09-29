@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Footer from '../Inc/Footer';
+import {useNavigate} from 'react-router-dom';
 
 
 export default function Gas() {
@@ -11,6 +12,8 @@ export default function Gas() {
     const [textarea, setTextarea] = useState("");
     const [fuel, setFuel] = useState("LPG");
     const [city, setCity] = useState("")
+
+    const navigate = useNavigate();
 
 
 
@@ -87,7 +90,7 @@ export default function Gas() {
                         <label className="form-check-label" for="exampleCheck1">I agree</label>
                     </div>
 
-                    <button type="submit" className="btn btn-primary">Apply</button>
+                    <button type="submit" className="btn btn-primary" onClick={e=> navigate("/checkout")}>Apply</button>
 
                 </form>
 

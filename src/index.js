@@ -11,7 +11,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import { GoogleOAuthProvider } from '@react-oauth/google';
-const clientId = "151185718631-la49m2emq20ihorgdg0pmdk0h77998j3.apps.googleusercontent.com";
 
 const client = new ApolloClient({
   uri: 'https://flyby-gateway.herokuapp.com/',
@@ -27,7 +26,7 @@ const aspclient = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <GoogleOAuthProvider clientId={clientId}>
+  <GoogleOAuthProvider clientId={process.env.REACT_APP_EMAILJS_USER_ID}>
     <BrowserRouter>
       <ApolloProvider client={aspclient}>
         <App/>

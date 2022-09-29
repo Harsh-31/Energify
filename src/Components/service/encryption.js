@@ -11,6 +11,15 @@ export function saveOTP(otp) {
     });
 }
 
+export function saveUser(data) {
+    localStorage.setItem("_energify_user", JSON.stringify(data));
+}
+
+export function getUser() {
+    const data = window.localStorage.getItem("_energify_user");
+    return JSON.parse(data);
+}
+
 
 export function encryptPassword(pass) {
     return new Promise(function(resolve, reject) {
@@ -19,6 +28,18 @@ export function encryptPassword(pass) {
                 reject(err);
             } else {
                 resolve(hash);
+            }
+        });
+    });
+}
+
+export function matchPassword(insertpass, realpass) {
+    return new Promise(function(resolve, reject) {
+        bcrypt.compare(insertpass, realpass, function(err, res) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res);
             }
         });
     });

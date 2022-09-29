@@ -1,7 +1,44 @@
 import React from 'react';
 import Footer from '../Inc/Footer';
+import { useQuery,gql,useMutation } from '@apollo/client';
 
 function Contact() {
+
+    // const ADD_TICKET = gql`
+    // mutation Addticket($id:String!,$cat:String!,$desc:String!,$email:String!){
+    //     addticket(newticket:{
+    //       ticketId:$id,
+    //       category:$cat,
+    //       description:$desc,
+    //       email:$email
+    //     })
+    //     {
+    //       ticketId
+    //       category
+    //       description
+    //       email
+    //     }
+    //   }
+    // `
+    // const [addticket, addProMut] = useMutation(ADD_TICKET);
+
+    // function handlesavetickets(e){
+    //     e.preventDefault();
+    //     addticket({
+    //         variables:{
+    //             name: e.target.name.value,
+    //             cost: parseInt(e.target.price.value),
+    //             quantity: parseInt(e.target.quantity.value),
+    //             status: e.target.status.value,
+    //             desc: e.target.description.value,
+    //             cat: e.target.categoryname.value,
+    //             img: e.target.image.value,
+    //             measure: e.target.measurement.value
+    //         }
+    //     })
+    //     formRef.current.reset();
+    // }
+
     return (
         <div>
             <section className='py-4 text-center bg-danger'>
@@ -22,13 +59,13 @@ function Contact() {
                                     <div className='underline mb-3'></div>
                                     <form>
                                         <label htmlFor="">Name</label>
-                                        <input type="text" placeholder='Enter Your Name' class="form-control mb-3" />
+                                        <input type="text" placeholder='Enter Your Name' class="form-control mb-3" name="name" />
                                         <label htmlFor="">Email</label>
-                                        <input type="text" placeholder='Enter Your email id' class="form-control mb-3" />
+                                        <input type="text" placeholder='Enter Your email id' class="form-control mb-3" name="email"/>
                                         <label htmlFor="">Address</label>
-                                        <input type="text" placeholder='Enter Your Address' class="form-control mb-3" />
+                                        <input type="text" placeholder='Enter Your Address' class="form-control mb-3" name="address"/>
                                         <label htmlFor="">Message</label>
-                                        <textarea rows="2" className='form-control mb-3'></textarea>
+                                        <textarea rows="2" className='form-control mb-3' name="message"></textarea>
                                         <button type="submit" className='btn btn-primary w-100'>Submit</button>
                                     </form>
                                 </div>

@@ -1,20 +1,33 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import emailjs from '@emailjs/browser';
-import {saveOTP, encryptPassword} from '../../service/encryption';
+import {saveOTP, encryptPassword, saveUser} from '../../service/encryption';
 import { useNavigate } from 'react-router-dom';
 import{useMutation,gql} from '@apollo/client';
 
-const Signup = () => {
+const Signup = ({setUser}) => {
 
-    // const SIGNUP_MUT = gql`
-    // mutation registeruser($email:String!, $password:String!,$name:String!,$address:String!,$rolecode:Int!)
-    // `
-    // const [registeruser,{error}] = useMutation(SIGNUP_MUT);
+    const SIGNUP_MUT = gql`
+    mutation registerUser($mail:String!,$pas:String!,$nam:String!,$add:String!,$code:Int!){
+        registeruser(email:$mail,pass:$pas,name:$nam,address:$add,rolecode:$code){
+            rolecode
+            address
+            email
+            name
+            id
+        }
+    }
+    `
+    const [registeruser,{ data, loading, error }] = useMutation(SIGNUP_MUT);
 
+    useEffect(() => {
+        console.log(data?.registeruser?.id)
+
+        if(loading === false && data?.registeruser?.id){
+            saveUser(data.registeruser)
+            setUser(data.loginuser);
+        }
+    }, [loading])
     
-
-
-
 
     const [dataValidation, setDataValidation] = useState({
         name: "",
@@ -47,7 +60,7 @@ const Signup = () => {
             emailjs.send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, {
                 otp: OTP,
                 name: e.target.name.value,
-                email: e.target.email.value
+                email: e.target.email.value.toLowerCase()
             }, process.env.REACT_APP_EMAILJS_USER_ID)
                 .then((result) => {
                     console.log(result.text);
@@ -59,15 +72,15 @@ const Signup = () => {
                 }
             );
 
-            console.log(encryptPassword)
-            // registeruser({
-            //     variables:{
-            //         email: "e.target.email.value",
-            //         name: "e.target.name.value",
-            //         password: `${encryptPassword}`,
-            //         address: "e.target.address.value"
-            //     }
-            // })
+            registeruser({
+                variables:{
+                    mail: e.target.email.value,
+                    nam: e.target.name.value,
+                    pas: e.target.password.value,
+                    add: e.target.address.value,
+                    code: 1
+                }
+            })
         }
     };
 

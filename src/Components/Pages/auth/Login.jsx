@@ -1,10 +1,37 @@
 import "../../styles/auth.css";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useGoogleLogin} from '@react-oauth/google';
 import {GoogleLogin} from '@react-oauth/google';
+import { useQuery,gql } from '@apollo/client';
+import {saveUser} from '../../service/encryption';
 import jwt_decode from 'jwt-decode';
+import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({setUser}) {
+    const navigate = useNavigate();
+
+    const LOGIN_QUERY = gql`
+    query loginUser($a:String!,$b:String!){
+        loginuser(email:$a,pass:$b){
+            name
+            rolecode
+        }
+    }
+    `
+
+    const {error, data, loading, refetch} = useQuery(LOGIN_QUERY, {
+        variables: {sd: "email", sg: "password" },
+    });
+
+    useEffect(() => {
+        if(loading === false && data && data?.loginuser.name !== " User Not found"){
+            saveUser(data.loginuser);
+            setUser(data.loginuser);
+            navigate("/products")
+        }
+    }, [loading, data])
+    
+
     const login = useGoogleLogin({
         onSuccess: async respose => {
             try{
@@ -21,19 +48,24 @@ function Login() {
         }
     });
 
+    function passwordSubmitHandle(e) {
+        e.preventDefault();
+        refetch({a: e.target.email.value , b: e.target.password.value});
+    }
+
     return (
         <>
             <div className="wrapper">
                 <div className="overlay">
                     <h3 className="text-center mb-2">User Login</h3>
-                    <form>
+                    <form onSubmit={passwordSubmitHandle}>
                         <div className="form-group mb-2">
                             <label htmlFor="email">Email address</label>
                             <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name="email"/>
                         </div>
                         <div className="form-group mb-2">
                             <label htmlFor="password">Password</label>
-                            <input type="password" className="form-control" id="password" placeholder="Password" name="password" />
+                            <input type="password" className="form-control" id="password" placeholder="Password" name="password"/>
                         </div>
                         <div className="text-center mt-2">
                             <button type="submit" className="btn btn-primary">Login</button>
@@ -50,7 +82,7 @@ function Login() {
                         }}/>
                     </div>
                     <div className="text-center mt-3">
-                        <a href="/register" >Don't have Account?</a>
+                        <a href="/register" >Don't have Account? Signup</a>
                         <br/>
                         <a href="/" >Home</a>
                     </div>

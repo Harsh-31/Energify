@@ -20,7 +20,6 @@ function EmailVerification() {
         const result = await verifyOTP(otpRef.current.value);
         console.log(result);
         if(result === true){
-            localStorage.clear();
             navigate("/products")
         }else{
             setIsOTPCorrect(false);
